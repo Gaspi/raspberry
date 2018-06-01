@@ -16,7 +16,7 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 
 
-sudo apt-get install emacs24, screen
+sudo apt-get install emacs24, screen, htop
 
 sudo apt-get install lighttpd
 
@@ -44,6 +44,7 @@ sudo apt-get install chromium-browser
 
 sudo emacs sshd_config
   port 22 -> port 2121
+
 sudo service ssh restart
 
 
