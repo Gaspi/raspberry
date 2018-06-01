@@ -16,7 +16,7 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 
 
-sudo apt-get install emacs24
+sudo apt-get install emacs24, screen
 
 sudo apt-get install lighttpd
 
