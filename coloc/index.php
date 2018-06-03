@@ -13,7 +13,7 @@
 <article>
 
 <h1> Bienvenue sur le site de la coloc' ! </h1>
-<img src="gwenn.png">
+<img src="media/gwenn.png">
 
 </article>
 
