@@ -1,7 +1,7 @@
 
 import sys
 
-sys.path.append('/var/www/flask/')
+sys.path.append('/var/www/backend/')
 
 from backend import app as application
 
