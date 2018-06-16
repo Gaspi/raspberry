@@ -7,7 +7,7 @@ from flask import Flask
 app = Flask(__name__, instance_relative_config=True)
 app.config.from_mapping(
     SECRET_KEY='dev',
-    DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
+    DATABASE=os.path.join(app.instance_path, 'coloc.sqlite'),
 )
 
 # load the instance config, if it exists, when not testing
@@ -20,17 +20,20 @@ except OSError:
     pass
 
 # a simple page that says hello
-@app.route('/')
-def hello():
-    return 'Hello, World!'
+#@app.route('/')
+#def hello():
+#    return 'Hello, World!'
 
 
-from . import db
+import db
 db.init_app(app)
 
-from . import auth
+import auth
 app.register_blueprint(auth.bp)
 
+import blog
+app.register_blueprint(blog.bp)
+app.add_url_rule('/', endpoint='index')
 
 
 if __name__ == "__main__":

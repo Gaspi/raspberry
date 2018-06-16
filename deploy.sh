@@ -7,17 +7,23 @@ git pull
 cd /home/pi/
 
 
+mv /var/www/backend/instance /var/www/instance
+
 rm -rf /var/www/coloc
 rm -rf /var/www/backend
 
 cp -r /home/pi/git/raspberry/coloc   /var/www/coloc
 cp -r /home/pi/git/raspberry/backend /var/www/backend
 
-sudo chown www-data:www-data /var/www
-sudo chown www-data:www-data /var/www/*
-sudo chown www-data:www-data /var/www/*/*
+mv /var/www/instance /var/www/backend/instance
 
-sudo chmod 775 /var/www
-sudo chmod 775 /var/www/*
+
+sudo chown -R www-data:www-data /var/www/
+
+sudo chmod -R 775 /var/www/
+
+sudo chmod 664 /var/www/backend/instance/*
+
 
 sudo /etc/init.d/apache2 restart
+
