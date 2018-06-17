@@ -19,11 +19,6 @@ try:
 except OSError:
     pass
 
-# a simple page that says hello
-#@app.route('/')
-#def hello():
-#    return 'Hello, World!'
-
 
 import db
 db.init_app(app)

@@ -12,5 +12,14 @@
   <input type="password" name="password" id="password" required>
   <input type="submit" value="Register">
 </form>
+
+<table style="width:100%">
+  <tr> <th>User: </th> </tr>
+  {% for usr in users %}
+  <tr> <td> {{ usr }} </td> </tr>
+  {% endfor %}
+</table>
+
+
 {% endblock %}
 
