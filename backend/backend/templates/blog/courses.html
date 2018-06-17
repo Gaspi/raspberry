@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %} Courses {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h1> Liste de courses </h1>
+
+<form method="post">
+
+<table style="width:100%">
+  <tr>
+    <th> Article </th>
+    <th> Description </th>
+    <th> A acheter ? </th>
+    <th> Supprimer </th>
+  </tr>
+  {% for c in articles %}
+  <tr>
+    <td> {{ c['name'] }} </td>
+    <td> {{ c['desc'] }} </td>
+    <td>
+      {% if c['needed'] == 0 %}
+      <span style="color:Red"> NON </span>
+      {% else %}
+      <span style="color:Green"> OUI </span>
+      {% endif %}
+    </td>
+    <td>
+      <button type="submit" name="buy"    value="{{ c['id'] }}">
+      {% if c['needed'] == 0 %}
+      Ajouter
+      {% else %}
+      Retirer
+      {% endif %}
+      </button>
+      <button type="submit" name="delete" value="{{ c['id'] }}"> Supprimer </button>
+    </td>
+  </tr>
+  {% endfor %}
+
+  <tr>
+    <td> <input name="name"        id="name"       > </td>
+    <td> <input name="description" id="description"> </td>
+    <td colspan="2"> <input type="submit" value="Ajouter"> </td>
+  </tr>
+
+</table>
+
+</form>
+
+{% endblock %}
