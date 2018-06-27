@@ -30,9 +30,11 @@ def init_db():
 
 def set_pwd(user, pwd):
     db = get_db()
+    db.execute('DELETE FROM user WHERE username = ?',(user,))
+    db.commit()
     db.execute(
         'INSERT INTO user (username, password) VALUES (?, ?)',
-        ('coloc', generate_password_hash(pwd))
+        (user, generate_password_hash(pwd))
     )
     db.commit()
 

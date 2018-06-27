@@ -31,8 +31,8 @@ sudo /etc/init.d/apache2 restart
 export FLASK_APP=/var/www/backend/backend
 export FLASK_ENV=development
 
-flask init-db
+# flask init-db
 
-flask set-pwd --usr coloc --pwd coloc
+# flask set-pwd --usr coloc
 
 
