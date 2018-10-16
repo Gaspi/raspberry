@@ -80,3 +80,11 @@ sudo service pure-ftpd restart
 
 
 sudo apt-get install lm-sensors
+
+
+
+
+
+https://pimylifeup.com/raspberry-pi-nas/
+
+176.185.213.98:2222
