@@ -84,8 +84,12 @@ sudo apt-get install lm-sensors
 
 
 
-
+# NAS
 https://pimylifeup.com/raspberry-pi-nas/
-http://www.pivpn.io/
 
-176.185.213.98:2222
+# PiVPN
+http://www.pivpn.io/
+http://kamilslab.com/2017/01/22/how-to-turn-your-raspberry-pi-into-a-home-vpn-server-using-pivpn/
+
+
+176.185.213.98
