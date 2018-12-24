@@ -21,21 +21,21 @@ def close_db(e=None):
     if db is not None:
         db.close()
 
-def init_db():
-    db = get_db()
-    with current_app.open_resource('schema.sql') as f:
-        db.executescript(f.read().decode('utf8'))
-
-def set_pwd(user, pwd):
+def set_pwd(user, pwd, superuser = False):
     db = get_db()
     db.execute('DELETE FROM user WHERE username = ?',(user,))
     db.commit()
     db.execute(
-        'INSERT INTO user (username, password) VALUES (?, ?)',
-        (user, generate_password_hash(pwd))
+        'INSERT INTO user (username, password, superuser) VALUES (?, ?, ?)',
+        (user, generate_password_hash(pwd), superuser)
     )
     db.commit()
-
+    
+def init_db():
+    db = get_db()
+    with current_app.open_resource('schema.sql') as f:
+        db.executescript(f.read().decode('utf8'))
+    set_pwd(coloc, coloc)
 
 
 @click.command('init-db')
@@ -45,11 +45,12 @@ def init_db_command():
     click.echo('Initialized the database.')
 
 @click.command('set-pwd')
-@click.option('--usr', prompt='User'    , help='The user.')
-@click.option('--pwd', prompt='Password', help='The password for the user.')
+@click.option('--usr', prompt='User'        , help='The user.')
+@click.option('--pwd', prompt='Password'    , help='The password for the user.')
+@click.option('--su' , prompt='Super user ?', help='Is the use admin (y/n) ?')
 @with_appcontext
-def set_pwd_command(usr, pwd):
-    set_pwd(usr, pwd)
+def set_pwd_command(usr, pwd, su):
+    set_pwd(usr, pwd, 'y' in su)
     click.echo('Password set for user %s.' % usr)
 
     
