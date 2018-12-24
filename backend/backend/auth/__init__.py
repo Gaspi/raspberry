@@ -70,6 +70,7 @@ def superuser_required(view):
         if g.user is None:
             return redirect(url_for('auth.login'))
         if not g.user['superuser']:
+            flash(u'Page interdite, déso :(')
             return redirect(url_for('main.index'))
         return view(**kwargs)
     return wrapped_view
