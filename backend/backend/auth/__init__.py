@@ -64,6 +64,16 @@ def login_required(view):
         return view(**kwargs)
     return wrapped_view
 
+def superuser_required(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            return redirect(url_for('auth.login'))
+        if not g.user.superuser:
+            return redirect(url_for('main.index'))
+        return view(**kwargs)
+    return wrapped_view
+
 
 @bp.route('/register', methods=('GET', 'POST'))
 @login_required
