@@ -10,7 +10,7 @@ from backend.db   import get_db
 bp = Blueprint('courses', __name__)
 
 def id_exists(db, cid):
-    db.execute('SELECT id FROM courses WHERE id = ?', (cid,)).fetchone() is not None:
+    return db.execute('SELECT id FROM courses WHERE id = ?', (cid,)).fetchone() is not None
 
 
     
