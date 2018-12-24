@@ -35,7 +35,7 @@ def init_db():
     db = get_db()
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
-    set_pwd(coloc, coloc)
+    set_pwd("coloc", "coloc", True)
 
 
 @click.command('init-db')
