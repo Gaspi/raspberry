@@ -76,7 +76,7 @@ def superuser_required(view):
 
 
 @bp.route('/register', methods=('GET', 'POST'))
-@login_required
+@superuser_required
 def register():
     db = get_db()
     
