@@ -16,8 +16,9 @@
   <h2> Liens </h2>
   <ul>
     {% if g.user %}
-    <li><a href="{{ url_for(index'         ) }}"> Accueil                    </a></li>
-    <li><a href="{{ url_for(courses'       ) }}"> Liste de courses           </a></li>
+    <li><a href="{{ url_for('index'        ) }}"> Accueil                    </a></li>
+    <li><a href="{{ url_for('plantes'      ) }}"> Petites plantes            </a></li>
+    <li><a href="{{ url_for('courses'      ) }}"> Liste de courses           </a></li>
     <li><a href="{{ url_for('auth.register') }}"> Enregistrer un utilisateur </a></li>
     <li><a href="{{ url_for('auth.logout'  ) }}"> Se déconnecter             </a></li>
     <li><span> Connecté : {{ g.user['username'] }}</span></li>
