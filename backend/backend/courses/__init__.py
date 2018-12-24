@@ -7,13 +7,10 @@ from flask import (
 from auth import login_required
 from db import get_db
 
-bp = Blueprint('blog', __name__)
+bp = Blueprint('courses', __name__)
 
-@bp.route('/')
-@login_required
-def index():
-    return render_template('blog/index.html')
-
+def id_exists(db, cid):
+    db.execute('SELECT id FROM courses WHERE id = ?', (cid,)).fetchone() is None:
 
 @bp.route('/courses', methods=('GET', 'POST'))
 @login_required
@@ -25,7 +22,7 @@ def courses():
         buyid    = request.form.get('buy')
         
         if deleteid is not None:
-            if db.execute('SELECT id FROM courses WHERE id = ?', (deleteid,)).fetchone() is None:
+            if id_exists(db, deleteid):
                 flash('L\'article n\'existe pas.')
             else:
                 db.execute('DELETE FROM courses WHERE id = ?', (deleteid, ))
@@ -60,4 +57,5 @@ def courses():
     articles = db.execute(
         'SELECT id, name, desc, needed FROM courses ORDER BY needed DESC, name'
     ).fetchall()
-    return render_template('blog/courses.html', articles=articles)
+
+    return render_template('courses.html', articles=articles)

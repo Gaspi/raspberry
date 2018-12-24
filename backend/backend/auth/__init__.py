@@ -56,19 +56,13 @@ def logout():
     return redirect(url_for('auth.login'))
 
 
-
 def login_required(view):
     @functools.wraps(view)
     def wrapped_view(**kwargs):
         if g.user is None:
             return redirect(url_for('auth.login'))
-        
         return view(**kwargs)
-    
     return wrapped_view
-
-
-
 
 
 @bp.route('/register', methods=('GET', 'POST'))
@@ -103,6 +97,4 @@ def register():
     users = db.execute('SELECT username FROM user ORDER BY username DESC').fetchall()
     users = [ u['username'] for u in users ]
     return render_template('auth/register.html', users=users)
-
-
 

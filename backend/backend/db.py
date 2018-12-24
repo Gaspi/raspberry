@@ -7,8 +7,6 @@ from flask.cli import with_appcontext
 
 from werkzeug.security import generate_password_hash
 
-
-
 def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect(

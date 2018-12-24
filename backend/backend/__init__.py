@@ -26,10 +26,16 @@ db.init_app(app)
 import auth
 app.register_blueprint(auth.bp)
 
-import blog
-app.register_blueprint(blog.bp)
-app.add_url_rule('/', endpoint='index')
+import main
+app.register_blueprint(main.bp)
 
+import courses
+app.register_blueprint(courses.bp)
+
+import plantes
+app.register_blueprint(plantes.bp)
+
+app.add_url_rule('/', endpoint='index')
 
 if __name__ == "__main__":
     app.run(debug=True)
