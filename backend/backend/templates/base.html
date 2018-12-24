@@ -18,7 +18,7 @@
     <li><a href="{{ url_for('main.index'     ) }}"> Accueil                    </a></li>
     <li><a href="{{ url_for('plantes.plantes') }}"> Petites plantes            </a></li>
     <li><a href="{{ url_for('courses.courses') }}"> Liste de courses           </a></li>
-    {% if g.user.superuser %}
+    {% if g.user['superuser'] %}
     <li><a href="{{ url_for('auth.register'  ) }}"> Enregistrer un utilisateur </a></li>
     {% endif %}
     <li><a href="{{ url_for('auth.logout'    ) }}"> Se déconnecter             </a></li>

@@ -69,7 +69,7 @@ def superuser_required(view):
     def wrapped_view(**kwargs):
         if g.user is None:
             return redirect(url_for('auth.login'))
-        if not g.user.superuser:
+        if not g.user['superuser']:
             return redirect(url_for('main.index'))
         return view(**kwargs)
     return wrapped_view
