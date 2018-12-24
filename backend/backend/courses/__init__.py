@@ -10,8 +10,10 @@ from db import get_db
 bp = Blueprint('courses', __name__)
 
 def id_exists(db, cid):
-    db.execute('SELECT id FROM courses WHERE id = ?', (cid,)).fetchone() is None:
+    db.execute('SELECT id FROM courses WHERE id = ?', (cid,)).fetchone() is not None:
 
+
+    
 @bp.route('/courses', methods=('GET', 'POST'))
 @login_required
 def courses():
@@ -23,17 +25,17 @@ def courses():
         
         if deleteid is not None:
             if id_exists(db, deleteid):
-                flash('L\'article n\'existe pas.')
-            else:
                 db.execute('DELETE FROM courses WHERE id = ?', (deleteid, ))
                 db.commit()
+            else:
+                flash('L\'article n\'existe pas.')
                 
         elif buyid is not None:
-            if db.execute('SELECT id FROM courses WHERE id = ?', (buyid,)).fetchone() is None:
-                flash('L\'article n\'existe pas.')
-            else:
+            if id_exists(db, buyid):
                 db.execute('UPDATE courses SET needed = 1 - needed WHERE id = ?', (buyid, ))
                 db.commit()
+            else:
+                flash('L\'article n\'existe pas.')
                 
         else:
             name = request.form.get('name')
