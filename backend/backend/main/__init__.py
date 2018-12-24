@@ -5,7 +5,7 @@ from flask import (
     )
 
 from auth import login_required
-from db import get_db
+from backend.db import get_db
 
 bp = Blueprint('main', __name__)
 
