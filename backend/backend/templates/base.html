@@ -14,9 +14,7 @@
 
 <body id="page_top">
 
-<div id="main_contents" class="container">
-
-<nav id="main_navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+<nav id="main_navbar" class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#page_top">Coloc' - 84 Pasteur</a>
   <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,16 +51,22 @@
 </nav>
 
 
+<div id="main_contents" class="container">
+
   <div class="row" id="header">
-    {% block header %}{% endblock %}
+    {% block header %}
+    {% endblock %}
   </div>
 
 {% for message in get_flashed_messages() %}
-  <div class="alert alert-warning" role="alert">{{ message }}</div>
+  <div class="alert alert-warning" role="alert">
+    {{ message }}
+  </div>
 {% endfor %}
-  
+
   <div class="row" id="content">
-{% block content %}{% endblock %}
+    {% block content %}
+    {% endblock %}
   </div>
 
 </div>
