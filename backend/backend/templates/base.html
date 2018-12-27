@@ -15,38 +15,40 @@
 <body id="page_top">
 
 <nav id="main_navbar" class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#page_top">Coloc' - 84 Pasteur</a>
-  <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-{% if g.user %}
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('main.index'     ) }}"> Accueil </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ url_for('plantes.plantes') }}"> Petites plantes            </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ url_for('courses.courses') }}"> Liste de courses           </a>
-      </li>
-{% if g.user['superuser'] %}
-      <li class="nav-item">
-        <a href="{{ url_for('auth.register'  ) }}"> Enregistrer un utilisateur </a>
-      </li>
-{% endif %}
-      <li class="nav-item">
-        <a href="{{ url_for('auth.logout'    ) }}"> Se déconnecter             </a>
-      </li>
-      <li class="nav-item">
-      <span> Connecté : {{ g.user['username'] }}</span></li>
-{% else %}
-      <li class="nav-item">
-        <a href="{{ url_for('auth.login') }}">Log In</a>
-      </li>
-{% endif %}
-    </ul>
+  <div class="container">
+    <a class="navbar-brand" href="#page_top">84 Pasteur</a>
+    <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {% if g.user %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('main.index'     ) }}"> Accueil </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ url_for('plantes.plantes') }}"> Petites plantes            </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ url_for('courses.courses') }}"> Liste de courses           </a>
+        </li>
+        {% if g.user['superuser'] %}
+        <li class="nav-item">
+          <a href="{{ url_for('auth.register'  ) }}"> Enregistrer un utilisateur </a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a href="{{ url_for('auth.logout'    ) }}"> Se déconnecter             </a>
+        </li>
+        <li class="nav-item">
+        <span> Connecté : {{ g.user['username'] }}</span></li>
+        {% else %}
+        <li class="nav-item">
+          <a href="{{ url_for('auth.login') }}">Log In</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
   </div>
 </nav>
 
@@ -58,11 +60,11 @@
     {% endblock %}
   </div>
 
-{% for message in get_flashed_messages() %}
+  {% for message in get_flashed_messages() %}
   <div class="alert alert-warning" role="alert">
     {{ message }}
   </div>
-{% endfor %}
+  {% endfor %}
 
   <div class="row" id="content">
     {% block content %}
