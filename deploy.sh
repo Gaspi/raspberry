@@ -2,6 +2,7 @@
 
 GITPATH=/home/pi/git/raspberry
 WWWPATH=/var/www
+BOOTSTRAP=/home/pi/git/bootstrap/dist
 
 # Fetching latest website
 cd $GITPATH
@@ -16,10 +17,10 @@ cp -r $GITPATH/backend $WWWPATH/backend
 mv $WWWPATH/instance $WWWPATH/backend/instance
 
 # Getting (latest) Bootstrap files
-wget -nv -O $WWWPATH/backend/backend/static/bootstrap.css 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css'  
 wget -nv -O $WWWPATH/backend/backend/static/jquery.js     'https://code.jquery.com/jquery-3.3.1.slim.min.js'
 wget -nv -O $WWWPATH/backend/backend/static/popper.js     'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js'
-wget -nv -O $WWWPATH/backend/backend/static/bootstrap.js  'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js'
+cp $BOOTSTRAP/css/*.min.css $WWWPATH/backend/backend/static/
+cp $BOOTSTRAP/js/*.min.css $WWWPATH/backend/backend/static/
 
 # Fixing rights
 sudo chown -R www-data:www-data $WWWPATH/
