@@ -11,45 +11,61 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
 </head>
-<body>
+<body id="page_top">
 
-<header>
-  <h1>Coloc</h1>
-</header>
-
-<nav>
-  <h2> Liens </h2>
-  <ul>
-    {% if g.user %}
-    <li><a href="{{ url_for('main.index'     ) }}"> Accueil                    </a></li>
-    <li><a href="{{ url_for('plantes.plantes') }}"> Petites plantes            </a></li>
-    <li><a href="{{ url_for('courses.courses') }}"> Liste de courses           </a></li>
-    {% if g.user['superuser'] %}
-    <li><a href="{{ url_for('auth.register'  ) }}"> Enregistrer un utilisateur </a></li>
-    {% endif %}
-    <li><a href="{{ url_for('auth.logout'    ) }}"> Se déconnecter             </a></li>
-    <li><span> Connecté : {{ g.user['username'] }}</span></li>
-      {% else %}
-    <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
-      {% endif %}
-  </ul>
+<nav id="main_navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#page_top">Coloc' - 84 Pasteur</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+{% if g.user %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('main.index'     ) }}"> Accueil </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ url_for('plantes.plantes') }}"> Petites plantes            </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ url_for('courses.courses') }}"> Liste de courses           </a>
+      </li>
+{% if g.user['superuser'] %}
+      <li class="nav-item">
+        <a href="{{ url_for('auth.register'  ) }}"> Enregistrer un utilisateur </a>
+      </li>
+{% endif %}
+      <li class="nav-item">
+        <a href="{{ url_for('auth.logout'    ) }}"> Se déconnecter             </a>
+      </li>
+      <li class="nav-item">
+      <span> Connecté : {{ g.user['username'] }}</span></li>
+{% else %}
+      <li class="nav-item">
+        <a href="{{ url_for('auth.login') }}">Log In</a>
+      </li>
+{% endif %}
+    </ul>
+  </div>
 </nav>
 
-<section id="content">
+
+<div id="main_contents" class="container">
+
+  <section id="content">
   <header>
     {% block header %}{% endblock %}
   </header>
   
-  {% for message in get_flashed_messages() %}
-  <div class="flash">{{ message }}</div>
-  {% endfor %}
+{% for message in get_flashed_messages() %}
+  <div class="alert alert-warning" role="alert">{{ message }}</div>
+{% endfor %}
   
-  {% block content %}{% endblock %}
+{% block content %}{% endblock %}
 
-</section>
+  </section>
 
-<footer>
-</footer>
+</div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
