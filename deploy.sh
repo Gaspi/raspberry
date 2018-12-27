@@ -19,8 +19,8 @@ mv $WWWPATH/instance $WWWPATH/backend/instance
 # Getting (latest) Bootstrap files
 wget -nv -O $WWWPATH/backend/backend/static/jquery.js     'https://code.jquery.com/jquery-3.3.1.slim.min.js'
 wget -nv -O $WWWPATH/backend/backend/static/popper.js     'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js'
-cp $BOOTSTRAP/css/*.min.css $WWWPATH/backend/backend/static/
-cp $BOOTSTRAP/js/*.min.js   $WWWPATH/backend/backend/static/
+cp $BOOTSTRAP/css/*.min.* $WWWPATH/backend/backend/static/
+cp $BOOTSTRAP/js/*.min.*  $WWWPATH/backend/backend/static/
 
 # Fixing rights
 sudo chown -R www-data:www-data $WWWPATH/
