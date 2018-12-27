@@ -52,18 +52,17 @@
 
 <div id="main_contents" class="container">
 
-  <section id="content">
-  <header>
+  <div class="row" id="header">
     {% block header %}{% endblock %}
-  </header>
-  
+  </div>
+
 {% for message in get_flashed_messages() %}
   <div class="alert alert-warning" role="alert">{{ message }}</div>
 {% endfor %}
   
+  <div class="row" id="content">
 {% block content %}{% endblock %}
-
-  </section>
+  </div>
 
 </div>
 
