@@ -4,7 +4,7 @@ GITPATH=/home/pi/git/raspberry
 WWWPATH=/var/www
 
 # Fetching latest website
-cd $GITFOLDER
+cd $GITPATH
 git pull
 
 # Move $GITPATH// folders to $WWWPATH/ but keeping $WWWPATH/backend/instance
