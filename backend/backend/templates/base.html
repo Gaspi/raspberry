@@ -2,10 +2,14 @@
 <html lang="en">
  
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon"/>
   <title> {% block title %}{% endblock %} - Site Coloc' </title>
-  
-  
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
 </head>
 <body>
 
@@ -47,5 +51,10 @@
 <footer>
 </footer>
 
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{{ url_for('static', filename='jquery.js')    }}"></script>
+  <script src="{{ url_for('static', filename='popper.js')    }}"></script>
+  <script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
 </body>
 </html>
