@@ -23,9 +23,40 @@
 
 </head>
 
-<body id="page_top" style="min-height: 2000px">
+<body id="page_top" data-spy="scroll" data-target="#main_navbar" data-offset="0">
 
-  <!-- Static navbar -->
+<nav id="main_navbar" class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger">
+  <div class="container">
+    <a class="navbar-brand" href="#page_top">Rodolphe Lepigre</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto text-center">
+        <li class="nav-item">
+          <a class="nav-link" href="#sect_research">Research</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#sect_publications">Publications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#sect_softwares">Software</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#sect_talks">Talks</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="main_contents" class="container">
+
+<!--
+<body id="page_top" style="min-height: 2000px">
+-->
+<!-- Static navbar -->
+<!--
   <nav class="navbar navbar_default navbar-fixed-top bg-light">
 	<div class="container">
 	  <div class="navbar-header">
@@ -70,7 +101,8 @@
   </nav>
 	
   <div id="main_contents" class="container">
-
+	-->
+  
 	<div class="row" id="header">
       {% block header %}
       {% endblock %}
