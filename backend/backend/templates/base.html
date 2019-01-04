@@ -13,21 +13,15 @@
   
   <title> {% block title %}{% endblock %} - Site Coloc' </title>
   
-<!--  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
-  
-<!-- Bootstrap CSS -->
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
-<!--
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
--->
-
 </head>
 
 <body id="page_top" data-spy="scroll" data-target="#main_navbar" data-offset="0">
 
-<nav id="main_navbar" class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger">
+<nav id="main_navbar" class="navbar fixed-top navbar-expand-lg navbar-light">
   <div class="container">
-    <a class="navbar-brand" href="#page_top">Rodolphe Lepigre</a>
+    <a class="navbar-brand" href="#page_top">Site Coloc</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -126,11 +120,5 @@
   <script src="{{ url_for('static', filename='jquery.js')        }}"></script>
   <script src="{{ url_for('static', filename='popper.js')        }}"></script>
   <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
-  
-  <!--
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  -->
 </body>
 </html>
