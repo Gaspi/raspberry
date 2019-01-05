@@ -14,13 +14,13 @@
   <title> {% block title %}{% endblock %} - Site Coloc' </title>
   
   <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css'        ) }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body id="page_top" data-spy="scroll" data-target="#main_navbar" data-offset="0">
 
-<nav id="main_navbar" class="navbar navbar-default navbar-fixed-stop">
+<nav id="main_navbar" class="navbar navbar-default navbar-fixed-stop navbar-expand-lg navbar-dark">
   <div class="container">
     <a class="navbar-brand" href="#page_top">Site Coloc</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
