@@ -15,11 +15,12 @@
   
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename=style.css') }}">
 </head>
 
 <body id="page_top" data-spy="scroll" data-target="#main_navbar" data-offset="0">
 
-<nav id="main_navbar" class="navbar navbar-default navbar-expand-lg navbar-light">
+<nav id="main_navbar" class="navbar navbar-default navbar-fixed-stop">
   <div class="container">
     <a class="navbar-brand" href="#page_top">Site Coloc</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,18 +33,18 @@
 			<a class="nav-link" href="{{ url_for('main.index'     ) }}"> Accueil </a>
 		  </li>
 		  <li class="nav-item">
-			<a href="{{ url_for('plantes.plantes') }}"> Petites plantes            </a>
+			<a class="nav-link" href="{{ url_for('plantes.plantes') }}"> Petites plantes            </a>
 		  </li>
 		  <li class="nav-item">
-			<a href="{{ url_for('courses.courses') }}"> Liste de courses           </a>
+			<a class="nav-link" href="{{ url_for('courses.courses') }}"> Liste de courses           </a>
 		  </li>
 		  {% if g.user['superuser'] %}
 		  <li class="nav-item">
-			<a href="{{ url_for('auth.register'  ) }}"> Enregistrer un utilisateur </a>
+			<a class="nav-link" href="{{ url_for('auth.register'  ) }}"> Enregistrer un utilisateur </a>
 		  </li>
 		  {% endif %}
 		  <li class="nav-item">
-			<a href="{{ url_for('auth.logout'    ) }}"> Se déconnecter             </a>
+			<a class="nav-link" href="{{ url_for('auth.logout'    ) }}"> Se déconnecter             </a>
 		  </li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
@@ -52,7 +53,7 @@
 		  </li>
 		  {% else %}
 		  <li class="nav-item">
-			<a href="{{ url_for('auth.login') }}">Log In</a>
+			<a class="nav-link" href="{{ url_for('auth.login') }}">Log In</a>
 		  </li>
 		  {% endif %}
       </ul>
